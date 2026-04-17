@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Helper</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      text-align: center;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: white;
+    }
+
+    nav {
+      background: rgba(0,0,0,0.3);
+      padding: 15px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .slide {
+      display: none;
+      padding: 30px;
+      min-height: 100vh;
+    }
+
+    #home { display: block; }
+
+    .card {
+      background: white;
+      color: black;
+      padding: 20px;
+      margin: 15px auto;
+      width: 60%;
+      border-radius: 10px;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: rgba(0,0,0,0.3);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <button onclick="showSlide('home')">Home</button>
+    <button onclick="showSlide('subjects')">Subjects</button>
+    <button onclick="showSlide('about')">About</button>
+  </nav>
+
+  <!-- HOME -->
+  <div id="home" class="slide">
+    <h1>📚 Student Helper</h1>
+    <p>Welcome! Select subject and topic to learn easily.</p>
+    <p>👩‍💻 Created by Ayesha Shahbaz</p>
+  </div>
+
+  <!-- SUBJECTS -->
+  <div id="subjects" class="slide">
+
+    <div class="card">
+      <h3>Operating System</h3>
+      <select onchange="showTopic(this.value)">
+        <option value="">Select Topic</option>
+        <option value="os1">What is OS</option>
+        <option value="os2">Types of OS</option>
+        <option value="os3">Process Management</option>
+        <option value="os4">Memory Management</option>
+        <option value="os5">File System</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <h3>DSA</h3>
+      <select onchange="showTopic(this.value)">
+        <option value="">Select Topic</option>
+        <option value="dsa1">Stack</option>
+        <option value="dsa2">Queue</option>
+        <option value="dsa3">Array</option>
+        <option value="dsa4">Linked List</option>
+        <option value="dsa5">Tree</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <h3>English</h3>
+      <select onchange="showTopic(this.value)">
+        <option value="">Select Topic</option>
+        <option value="eng1">Essay Writing</option>
+        <option value="eng2">Paragraph Writing</option>
+        <option value="eng3">Grammar</option>
+        <option value="eng4">Tenses</option>
+        <option value="eng5">Comprehension</option>
+      </select>
+    </div>
+
+    <div class="card" id="output">
+      <p>Select a topic to see explanation</p>
+    </div>
+
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about" class="slide">
+    <h2>About</h2>
+    <p>This Student Helper website is created using HTML, CSS, and JavaScript.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    👩‍💻 Created by Ayesha Shahbaz
+  </footer>
+
+  <script>
+    function showSlide(id) {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      document.getElementById(id).style.display = "block";
+    }
+
+    function showTopic(topic) {
+      let text = "";
+
+      if (topic == "os1") {
+        text = "OS is system software that manages hardware and software resources. It acts as a bridge between user and computer. It controls all system operations.";
+      }
+      else if (topic == "os2") {
+        text = "Types of OS include Batch OS, Time Sharing OS, and Real-Time OS. Each type is designed for different computing needs.";
+      }
+      else if (topic == "os3") {
+        text = "Process Management handles creation, scheduling, and termination of processes. It ensures efficient CPU usage.";
+      }
+      else if (topic == "os4") {
+        text = "Memory Management controls and allocates system memory to processes efficiently.";
+      }
+      else if (topic == "os5") {
+        text = "File System manages how data is stored and retrieved in the system.";
+
+      }
+      else if (topic == "dsa1") {
+        text = "Stack follows LIFO (Last In First Out). It is used in recursion and expression evaluation.";
+      }
+      else if (topic == "dsa2") {
+        text = "Queue follows FIFO (First In First Out). It is used in scheduling.";
+      }
+      else if (topic == "dsa3") {
+        text = "Array is a collection of elements stored in continuous memory locations.";
+      }
+      else if (topic == "dsa4") {
+        text = "Linked List is a dynamic data structure where elements are connected using pointers.";
+      }
+      else if (topic == "dsa5") {
+        text = "Tree is a hierarchical data structure used to represent data in parent-child form.";
+
+      }
+      else if (topic == "eng1") {
+        text = "Essay writing includes introduction, body, and conclusion in a structured format.";
+      }
+      else if (topic == "eng2") {
+        text = "Paragraph writing focuses on one main idea with supporting details.";
+      }
+      else if (topic == "eng3") {
+        text = "Grammar is a set of rules that helps in forming correct sentences.";
+      }
+      else if (topic == "eng4") {
+        text = "Tenses show the time of action: past, present, and future.";
+      }
+      else if (topic == "eng5") {
+        text = "Comprehension is understanding and explaining a given passage.";
+
+      }
+
+      document.getElementById("output").innerHTML = text;
+    }
+  </script>
+
+</body>
+</html>
